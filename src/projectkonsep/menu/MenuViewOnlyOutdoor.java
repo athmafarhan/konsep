@@ -18,12 +18,12 @@ import projectkonsep.kamera.view.*;
  *
  * @author Athma Farhan
  */
-public class MenuViewOnlyKamera extends javax.swing.JFrame {
+public class MenuViewOnlyOutdoor extends javax.swing.JFrame {
 
     /**
      * Creates new form Menu
      */
-    public MenuViewOnlyKamera() {
+    public MenuViewOnlyOutdoor() {
         initComponents();
     }
 
