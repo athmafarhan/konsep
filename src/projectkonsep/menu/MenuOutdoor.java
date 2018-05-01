@@ -192,10 +192,7 @@ public class MenuOutdoor extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-        this.dispose();
-        java.awt.EventQueue.invokeLater(() -> {
-            new ViewCustomerStudio().setVisible(true);
-        });
+        
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

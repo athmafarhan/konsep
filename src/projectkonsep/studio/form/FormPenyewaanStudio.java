@@ -64,7 +64,7 @@ public class FormPenyewaanStudio extends javax.swing.JFrame {
 
     private TableRowSorter<TableModel> rowSorter;
     
-    ArrayList<PenyewaanStudio> ListPeminjamanStudio = new ArrayList<>();
+    ArrayList<PenyewaanStudio> ListPenyewaanStudio = new ArrayList<>();
     ArrayList<CustomerStudio> ListCustomerStudio = new ArrayList<>();
     ArrayList<HargaItemStudio> ListInventarisStudio = new ArrayList<>();
     
@@ -74,8 +74,8 @@ public class FormPenyewaanStudio extends javax.swing.JFrame {
     Object[] headerCustomer = {"ID", "Nama", "Nomor HP", "Alamat", "Instagram", "Status"};
     DefaultTableModel dataCustomer = new DefaultTableModel(null, headerCustomer);
     
-    Object[] headerPeminjaman = {"ID", "Customer", "Nama Item", "Tgl Sewa", "Jam Mulai", "Jam Selesai", "Harga", "DP", "Diskon", "Denda", "Jumlah", "Cara Bayar"};
-    DefaultTableModel dataPeminjaman = new DefaultTableModel(null, headerPeminjaman);
+    Object[] headerPenyewaan = {"ID", "Customer", "Nama Item", "Tgl Sewa", "Jam Mulai", "Jam Selesai", "Harga", "DP", "Diskon", "Denda", "Jumlah", "Cara Bayar"};
+    DefaultTableModel dataPenyewaan = new DefaultTableModel(null, headerPenyewaan);
     
     String nama_cust;
     
@@ -92,7 +92,7 @@ public class FormPenyewaanStudio extends javax.swing.JFrame {
         txtIDCustomer1.setEnabled(false);
         connectDatabase();
         connectDatabaseHarga();
-        connectDatabasePeminjaman();
+        connectDatabasePenyewaan();
         
         combo2();
         
@@ -207,14 +207,14 @@ public class FormPenyewaanStudio extends javax.swing.JFrame {
                 } 
     }
     
-    public void connectDatabasePeminjaman(){
-        tblPeminjamanStudio.setModel(dataPeminjaman);
+    public void connectDatabasePenyewaan(){
+        tblPenyewaanStudio.setModel(dataPenyewaan);
         Statement st;
         ResultSet rs;
-        String viewPeminjaman = "select * from V_PeminjamanStudio";
+        String viewPenyewaan = "select * from V_PenyewaanStudio";
            try {
                st = new Koneksi().getCon().createStatement();
-               rs = st.executeQuery(viewPeminjaman);
+               rs = st.executeQuery(viewPenyewaan);
                while(rs.next()){
                    //Ngerjain yang ini
                    PenyewaanStudio PS = new PenyewaanStudio(
@@ -233,7 +233,7 @@ public class FormPenyewaanStudio extends javax.swing.JFrame {
                            rs.getInt("jml"), 
                            rs.getString("cara_bayar"));
                    
-                   ListPeminjamanStudio.add(PS);
+                   ListPenyewaanStudio.add(PS);
                    
                    Object []kolom = {PS.getId(),
                            PS.getNama_cust(),
@@ -248,11 +248,11 @@ public class FormPenyewaanStudio extends javax.swing.JFrame {
                            PS.getJml(),
                            PS.getCara_bayar()};
                    
-                   dataPeminjaman.addRow(kolom);
+                   dataPenyewaan.addRow(kolom);
                    
                    }
                
-               dataPeminjaman.fireTableDataChanged();
+               dataPenyewaan.fireTableDataChanged();
            }catch (Exception e){
                 JOptionPane.showMessageDialog(null,"error :"+e.getMessage());
                 e.printStackTrace();
@@ -260,13 +260,13 @@ public class FormPenyewaanStudio extends javax.swing.JFrame {
     }
     
     public void connectDatabaseHarga(){
-        //tblPeminjamanStudio.setModel(dataPeminjaman);
+        //tblPenyewaanStudio.setModel(dataPenyewaan);
         Statement st;
         ResultSet rs;
-        String viewPeminjaman = "select * from V_HargaItemStudio";
+        String viewPenyewaan = "select * from V_HargaItemStudio";
            try {
                st = new Koneksi().getCon().createStatement();
-               rs = st.executeQuery(viewPeminjaman);
+               rs = st.executeQuery(viewPenyewaan);
                while(rs.next()){
                    //Ngerjain yang ini
                    HargaItemStudio HIS = new HargaItemStudio(
@@ -290,13 +290,13 @@ public class FormPenyewaanStudio extends javax.swing.JFrame {
             
     }
     
-    public void updateTablePeminjaman() {
-        int rowCount = dataPeminjaman.getRowCount()-1;
+    public void updateTablePenyewaan() {
+        int rowCount = dataPenyewaan.getRowCount()-1;
         
         for (int i = rowCount; i >= 0; i--) {
-            dataPeminjaman.removeRow(i);
+            dataPenyewaan.removeRow(i);
         }
-        for (PenyewaanStudio PS : ListPeminjamanStudio) {
+        for (PenyewaanStudio PS : ListPenyewaanStudio) {
             Object []kolom = {PS.getId(),
                            PS.getNama_cust(),
                            PS.getNama_item(),
@@ -309,10 +309,10 @@ public class FormPenyewaanStudio extends javax.swing.JFrame {
                            PS.getDenda(),
                            PS.getJml(),
                            PS.getCara_bayar()};         
-            dataPeminjaman.addRow(kolom);
+            dataPenyewaan.addRow(kolom);
         }
 
-        dataPeminjaman.fireTableDataChanged();
+        dataPenyewaan.fireTableDataChanged();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -327,7 +327,7 @@ public class FormPenyewaanStudio extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblPeminjamanStudio = new javax.swing.JTable();
+        tblPenyewaanStudio = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCustomer = new javax.swing.JTable();
@@ -361,14 +361,14 @@ public class FormPenyewaanStudio extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
         jButton17 = new javax.swing.JButton();
         jButton18 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -387,7 +387,7 @@ public class FormPenyewaanStudio extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        tblPeminjamanStudio.setModel(new javax.swing.table.DefaultTableModel(
+        tblPenyewaanStudio.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -398,12 +398,12 @@ public class FormPenyewaanStudio extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tblPeminjamanStudio.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblPenyewaanStudio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                tblPeminjamanStudioMousePressed(evt);
+                tblPenyewaanStudioMousePressed(evt);
             }
         });
-        jScrollPane2.setViewportView(tblPeminjamanStudio);
+        jScrollPane2.setViewportView(tblPenyewaanStudio);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -698,15 +698,6 @@ public class FormPenyewaanStudio extends javax.swing.JFrame {
             }
         });
 
-        jButton7.setText("jButton7");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-
-        jButton8.setText("jButton8");
-
         jButton9.setText("Delete");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -744,6 +735,15 @@ public class FormPenyewaanStudio extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setText("Edit");
+
+        jButton4.setText("New");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -755,25 +755,27 @@ public class FormPenyewaanStudio extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton15, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(7, 7, 7)
-                        .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(7, 7, 7)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(jButton10))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton2)
+                                .addGap(7, 7, 7)
+                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)
+                                .addComponent(jButton10))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)
+                                .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)
+                                .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -791,10 +793,11 @@ public class FormPenyewaanStudio extends javax.swing.JFrame {
                             .addComponent(jButton18))
                         .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jButton2)
+                                .addComponent(jButton3)
+                                .addComponent(jButton4))
                             .addComponent(jButton6)
-                            .addComponent(jButton7)
-                            .addComponent(jButton8)
                             .addComponent(jButton9)
                             .addComponent(jButton10)))
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE))
@@ -970,7 +973,7 @@ public class FormPenyewaanStudio extends javax.swing.JFrame {
         
         if (tambah4==false&&tambah3==false&&tambah2==false) {
             inputDatabase1();
-            updateTablePeminjaman();
+            updateTablePenyewaan();
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -1024,12 +1027,12 @@ public class FormPenyewaanStudio extends javax.swing.JFrame {
     }//GEN-LAST:event_tblCustomerMousePressed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        this.index = ListPeminjamanStudio.size()-1;
+        this.index = ListPenyewaanStudio.size()-1;
         this.showData1();
     }//GEN-LAST:event_jButton18ActionPerformed
 
-    private void tblPeminjamanStudioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPeminjamanStudioMousePressed
-        int rowIndex = tblPeminjamanStudio.getSelectedRow();
+    private void tblPenyewaanStudioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPenyewaanStudioMousePressed
+        int rowIndex = tblPenyewaanStudio.getSelectedRow();
         index = rowIndex;
         try {
             showData1();
@@ -1037,11 +1040,7 @@ public class FormPenyewaanStudio extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"Penambahan Gagal", "Informasi",
                 JOptionPane.INFORMATION_MESSAGE);
         }
-    }//GEN-LAST:event_tblPeminjamanStudioMousePressed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_tblPenyewaanStudioMousePressed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         this.index = 0;
@@ -1061,7 +1060,7 @@ public class FormPenyewaanStudio extends javax.swing.JFrame {
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
         try {
-            if (this.ListPeminjamanStudio.size() - 1 > this.index) {
+            if (this.ListPenyewaanStudio.size() - 1 > this.index) {
                 ++this.index;
                 this.showData1();
             }
@@ -1098,9 +1097,9 @@ boolean berhasil = false;
                     JOptionPane.showMessageDialog(this, "Pilih data yang akan dihapus!", "Informasi", 1);
                 }
                 if (berhasil == true) {
-                    ListPeminjamanStudio.remove(index);
+                    ListPenyewaanStudio.remove(index);
                     JOptionPane.showMessageDialog(this, "Data berhasil dihapus!", "Informasi", 1);
-                    updateTablePeminjaman();
+                    updateTablePenyewaan();
                 }
             }
             else if (berhasil == false) {
@@ -1109,6 +1108,22 @@ boolean berhasil = false;
             
         }        
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        int id = ListPenyewaanStudio.get(ListPenyewaanStudio.size()-1).getId()+1;
+        txtID.setText(String.valueOf(id));
+        txtIDCustomer1.setText("");
+        cbInventaris1.setSelectedIndex(0);
+        cbJam1.setSelectedIndex(0);
+        cbMenit1.setSelectedIndex(0);
+        jComboBox1.setSelectedIndex(0);
+        lblCekHarga1.setText("Klik Cek Harga");
+        txtDiskon1.setText("");
+        txtCaraBayar1.setText("");
+        txtDownPayment1.setText("");
+        lblJumlahHarga1.setText("Klik Cek Jumlah Harga");
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1199,9 +1214,9 @@ boolean berhasil = false;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -1227,7 +1242,7 @@ boolean berhasil = false;
     private javax.swing.JLabel lblJumlah1;
     private javax.swing.JLabel lblJumlahHarga1;
     private javax.swing.JTable tblCustomer;
-    private javax.swing.JTable tblPeminjamanStudio;
+    private javax.swing.JTable tblPenyewaanStudio;
     private javax.swing.JTextField txtCaraBayar1;
     private javax.swing.JTextField txtDiskon1;
     private javax.swing.JTextField txtDownPayment1;
@@ -1357,7 +1372,7 @@ boolean berhasil = false;
             PS.setJml(jml);
             PS.setCara_bayar(cara_bayar);
             
-            ListPeminjamanStudio.add(PS);
+            ListPenyewaanStudio.add(PS);
            
             
             
@@ -1502,8 +1517,8 @@ boolean berhasil = false;
             newPS.setJml(jml);
             newPS.setCara_bayar(cara_bayar);
             
-            ListPeminjamanStudio.set(index,newPS);            
-            updateTablePeminjaman();
+            ListPenyewaanStudio.set(index,newPS);            
+            updateTablePenyewaan();
             
         }
         else if (berhasil == false) {
@@ -1513,7 +1528,7 @@ boolean berhasil = false;
     }
     
     public void showData1() {
-        PenyewaanStudio PS = ListPeminjamanStudio.get(index);
+        PenyewaanStudio PS = ListPenyewaanStudio.get(index);
         
         txtID.setText(String.valueOf(PS.getId()));
         txtIDCustomer1.setText(String.valueOf(PS.getId_cust()));
