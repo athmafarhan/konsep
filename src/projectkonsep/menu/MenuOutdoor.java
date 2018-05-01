@@ -198,7 +198,7 @@ public class MenuOutdoor extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         this.dispose();
         java.awt.EventQueue.invokeLater(() -> {
-            new FormInventarisOutdoor().setVisible(true);
+            new MenuInventarisOutdoor().setVisible(true);
         });
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -221,7 +221,10 @@ public class MenuOutdoor extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7MouseClicked
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+        java.awt.EventQueue.invokeLater(() -> {
+            new MenuViewOnlyOutdoor().setVisible(true);
+        });
     }//GEN-LAST:event_jButton7ActionPerformed
 
     /**

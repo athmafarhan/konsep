@@ -3,25 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Athma%20Farhan/Dropbox/Konsep/src/projectkonsep/menu/MenuOrderStudio.java</file>
-            <file>file:/C:/Users/Athma%20Farhan/Dropbox/Konsep/src/projectkonsep/menu/MenuCustomerOrderStudio.java</file>
-            <file>file:/C:/Users/Athma%20Farhan/Dropbox/Konsep/src/projectkonsep/menu/MenuViewOnlyKamera.java</file>
-            <file>file:/C:/Users/Athma%20Farhan/Dropbox/Konsep/test/TestV.java</file>
-            <file>file:/C:/Users/Athma%20Farhan/Dropbox/Konsep/src/projectkonsep/kamera/form/FormKetInventarisKamera.java</file>
-            <file>file:/C:/Users/Athma%20Farhan/Dropbox/Konsep/src/projectkonsep/studio/form/FormBookingStudio.java</file>
-            <file>file:/C:/Users/Athma%20Farhan/Dropbox/Konsep/src/projectkonsep/kamera/form/FormPeminjamanKamera.java</file>
-            <file>file:/C:/Users/Athma%20Farhan/Dropbox/Konsep/src/projectkonsep/outdoor/form/FormCustomerOutdoor.java</file>
-            <file>file:/C:/Users/Athma%20Farhan/Dropbox/Konsep/src/projectkonsep/menu/Menu.java</file>
-            <file>file:/C:/Users/Athma%20Farhan/Dropbox/Konsep/src/projectkonsep/menu/MenuOutdoor.java</file>
-            <file>file:/C:/Users/Athma%20Farhan/Dropbox/Konsep/src/projectkonsep/finance/FinanceOutdoor.java</file>
-            <file>file:/C:/Users/Athma%20Farhan/Dropbox/Konsep/src/projectkonsep/kamera/form/FormBookingKamera.java</file>
-            <file>file:/C:/Users/Athma%20Farhan/Dropbox/Konsep/src/projectkonsep/finance/FinanceKamera.java</file>
-            <file>file:/C:/Users/Athma%20Farhan/Dropbox/Konsep/src/projectkonsep/studio/form/FormCetakBuktiStudio.java</file>
-            <file>file:/C:/Users/Athma%20Farhan/Dropbox/Konsep/src/projectkonsep/menu/MenuFinance.java</file>
-            <file>file:/C:/Users/Athma%20Farhan/Dropbox/Konsep/src/projectkonsep/SignIn.java</file>
-            <file>file:/C:/Users/Athma%20Farhan/Dropbox/Konsep/src/projectkonsep/studio/form/FormCustomerStudio.java</file>
-            <file>file:/C:/Users/Athma%20Farhan/Dropbox/Konsep/src/projectkonsep/Koneksi.java</file>
-            <file>file:/C:/Users/Athma%20Farhan/Dropbox/Konsep/src/projectkonsep/studio/form/FormHargaItemStudio.java</file>
+            <file>file:/C:/Users/Athma%20Farhan/Dropbox/Konsep/Konsep/src/projectkonsep/menu/MenuViewOnlyOutdoor.java</file>
+            <file>file:/C:/Users/Athma%20Farhan/Dropbox/Konsep/Konsep/src/projectkonsep/menu/MenuOutdoor.java</file>
+            <file>file:/C:/Users/Athma%20Farhan/Dropbox/Konsep/Konsep/src/projectkonsep/menu/MenuViewOnlyKamera.java</file>
+            <file>file:/C:/Users/Athma%20Farhan/Dropbox/Konsep/Konsep/src/projectkonsep/outdoor/KeteranganInventarisOutdoor.java</file>
         </group>
     </open-files>
 </project-private>

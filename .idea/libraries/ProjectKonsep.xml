@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ProjectKonsep">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dist/ProjectKonsep.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

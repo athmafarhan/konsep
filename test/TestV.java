@@ -14,10 +14,11 @@ public class TestV {
         String code = "";
         String tempA = "";
         StringBuilder sb = new StringBuilder();
+        String kepo = "Hehe";
         for (int i = 0; i < 6; i++) {
             Random rand = new Random();
             int a = rand.nextInt(9);
-            
+
             tempA = String.valueOf(a);
             sb = sb.append(tempA);
             System.out.println(sb);
